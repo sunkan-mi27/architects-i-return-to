@@ -1,0 +1,478 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Architects | Return To - A Study</title>
+    <meta
+      name="description"
+      content="A prsonal study of 4 Architects- Peter Zumthor, Zaha Hadid, Oluwole Olumuyiwa, Demas Nwoko."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #15120f;
+        --surface: #1c1813;
+        --text: #ece4d6;
+        --text-mted: #968c7e;
+        --accent: #b35a2e;
+        --stone: #6e6a62;
+        --rule: #322c25;
+        --maxw: 720px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "inter", sans-serif;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
+
+      .eyebrow {
+        font-family: "Space Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      /* Nav */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+        background: rgb(21, 18, 15, 0.88);
+        backdrop-filter: blur(6px);
+        border-bottom: 1px solid var(--rule);
+      }
+      .nav-mark {
+        font-family: "Space Mono", monospace;
+        font-size: 0.78rem;
+        letter-spacing: 0.1em;
+        color: var(--text-muted);
+      }
+      .nav-links {
+        display: flex;
+        gap: 1.1rem;
+        flex-wrap: wrap;
+        font-family: "Space Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.8em;
+      }
+      .nav-links a {
+        color: var(--text-muted);
+        transition: color 0.25s ease;
+      }
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      /* Hero */
+      .hero {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 5rem 1.5rem 3rem;
+      }
+
+      .hero h1 {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 500;
+        font-size: clamp(2.2rem, 6vw, 3.4rem);
+        line-height: 1.1;
+        margin: 0.8rem 0 1.2rem;
+      }
+      .hero p {
+        color: var(--text-muted);
+        font-size: 1rem;
+        max-width: 34ch;
+      }
+
+      /* Sections */
+      section.study {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 3.5rem 1.5rem;
+        scroll-margin-top: 4rem;
+      }
+      .study-head {
+        margin-bottom: 1.6rem;
+      }
+      .study-head.eyebrow {
+        margin-bottom: 0.5rem;
+      }
+      .study-head h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 500;
+        font-size: clamp(1.9rem, 5vw, 2.6rem);
+        margin: 0;
+      }
+      blockquote {
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        font-size: clamp(1.3rem, 3.4vw, 1.7rem);
+        line-height: 1.4;
+        margin: 1.6rem 0;
+        padding-left: 1.1rem;
+        border-left: 2px solid var(--accent);
+      }
+      blockquote cite {
+        display: block;
+        font-family: "Space Mono", monospace;
+        font-style: normal;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-top: 0.6rem;
+      }
+      .bio {
+        color: var(--text);
+        font-size: 0.98rem;
+        max-width: 62ch;
+      }
+
+      .fact-card {
+        background: var(--surface);
+        border: 1px solid var(--rule);
+        padding: 1rem 1.2rem;
+        margin: 1.6rem 0;
+        font-family: "Space Mono", monospace;
+        font-size: 0.78rem;
+        letter-spacing: 0.02em;
+        color: var(--text-muted);
+      }
+      .fact-card strong {
+        color: var(--text);
+        font-weight: 400;
+      }
+      .works {
+        list-style: none;
+        margin: 1.8rem 0 0;
+        padding: 0;
+        border-top: 1px solid var(--rule);
+      }
+      .works li {
+        display: flex;
+        gap: 1rem;
+        align-items: baseline;
+        padding: 0.7rem 0;
+        border-bottom: 1px solid var(--rule);
+        font-size: 0.92rem;
+      }
+      .work-year {
+        font-family: "Space Mono", monospace;
+        font-size: 0.75rem;
+        color: var(--stone);
+        min-width: 3.4rem;
+      }
+      .work-name {
+        flex: 1;
+      }
+      .work-loc {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        text-align: right;
+      }
+
+      /* Dividers: each pattern echoes the architect's signature materials */
+      .divider {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        height: 48px;
+        opacity: 0.55;
+      }
+      .divider-Zumthor {
+        background: repeating-linear-gradient(
+          to bottom,
+          var(--stone) 0 2px,
+          transparent 2px 12px
+        );
+      }
+      .divider-hadid {
+        width: 100%;
+        height: 56px;
+      }
+      .divider-hadid svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .divider-nwoko {
+        background:
+          repeating-linear-gradient(
+            45deg,
+            var(--stone) 0 1px,
+            transparent 1px 16px
+          ),
+          repeating-linear-gradient(
+            -45deg,
+            var(--stone) 0 1px,
+            transparent 1px 16px
+          );
+      }
+      .divider-olumuyiwa {
+        background: repeating-linear-gradient(
+          100deg,
+          var(--stone) 0 3px,
+          transparent 3px 18px
+        );
+      }
+      /* Scroll reveal*/
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition:
+          opacitym.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .reveal {
+          transition: none;
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      footer {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 3rem 1.5rem 4rem;
+        border-top: 1px solid var(--rule);
+        font-family: "Space Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        letter-spacing: 0.04em;
+      }
+      footer a {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <span class="nav-mark">STUDY NOTES!!</span>
+      <div class="nav-links">
+        <a href="#zumthor">ZUMTHOR</a>
+        <span>⚪</span>
+        <a href="#hadid">HADID</a>
+        <span>⚪</span>
+        <a href="#nwoko">NWOKO</a>
+        <span>⚪</span>
+        <a href="#olumuyiwa">OLUMUYIWA</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <p class="eyebrow">Personal Study - 4 Architects</p>
+      <h1>Architects I Return To</h1>
+      <p>
+        A running collections of the architects whose ideas keep shaping how i
+        think about space - material, light and care in construction
+      </p>
+    </header>
+    <main>
+      <section class="study reveal" id="zumthor">
+        <div class="study-head">
+          <p class="eyebrow">Study No. 01 - Switzerland, b. 1943</p>
+          <h2>Peter Zumthor</h2>
+        </div>
+        <blockquote>
+          'I've said goodbye to the overworked notion that architecture has to
+          save the world.'
+          <cite>- Peter Zumthor</cite>
+        </blockquote>
+        <p class="bio">
+          Zumthor builds slowly and rarely, starting each project with a
+          material rather than a form. His small practice in the Swiss village
+          of Haldenstein has produced some of the quietest, most physically
+          intense spaces in contemporary architecture - buildings less concerned
+          with how they look than with how they feel against skin.
+        </p>
+        <ul class="works">
+          <li>
+            <span class="work-year">1996</span
+            ><span class="work-name">Thermal Baths</span
+            ><span class="work-loc">Vals, Switzerland</span>
+          </li>
+          <li>
+            <span class="work-year">1997</span
+            ><span class="work-name">Kunsthaus Bregenz</span
+            ><span class="work-loc">Austria</span>
+          </li>
+          <li>
+            <span class="work-year">2011</span
+            ><span class="work-name">Serpentine Pavillion</span
+            ><span class="work-loc">London, UK</span>
+          </li>
+        </ul>
+      </section>
+
+      <div class="divider divider--Zumthor" aria-hidden="true"></div>
+
+      <section class="study reveal" id="hadid">
+        <div class="study-head">
+          <p class="eyebrow">Study No. 02 - Iraq / UK, 1950-2016</p>
+          <h2>Zaha Hadid</h2>
+        </div>
+        <blockquote>
+          "There are 360 degrees, so why stick to one?"
+          <cite>- Zaha Hadid</cite>
+        </blockquote>
+        <p class="bio">
+          Hadid treated buildings like terrain instead of boxes, trading right
+          angles for sweeping, continuous curves drawn from landscape and
+          motion. In 2004 she became the first woman to win the pritzker price,
+          and her practice went on to push computer-aided design futher than
+          almost anyone before her.
+        </p>
+        <ul class="works">
+          <li>
+            <span class="work-year">2009</span
+            ><span class="work-name">MAXXI Museum</span
+            ><span class="work-loc">Rome, Italy</span>
+          </li>
+          <li>
+            <span class="work-year">2010</span
+            ><span class="work-name">Guangzhou Opera House</span
+            ><span class="work-loc">China</span>
+          </li>
+          <li>
+            <span class="work-year">2011</span
+            ><span class="work-name">London Aquatics Centre</span
+            ><span class="work-loc">London, UK</span>
+          </li>
+        </ul>
+      </section>
+
+      <div class="divider divider-hadid" aria-hidden="true">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+          <path
+            d="M0,40 C200,5 400,55 600,30 S1000,0 1200,35"
+            fill="none"
+            stroke="#b35a2e"
+            stroke-width="2"
+          />
+        </svg>
+      </div>
+
+      <section class="study reveal" id="nwoko">
+        <div class="study-head">
+          <p class="eyebrow">Study No. 03 - Nigeria, 1935</p>
+          <h2>Demas Nwoko</h2>
+        </div>
+        <blockquote>
+          "Whatever you build, it should suit your culture."
+          <cite>- Demas Nwoko</cite>
+        </blockquote>
+        <p class="bio">
+          Nwoko trained as a painter and sculptor before turning to
+          architecture, and it shows - his buildings read like assembled
+          artworks, full of carved motifs, terracotta brick and deliberate light
+          and shadow.He calls his approach "organic modernism" : merging local
+          building knowledge with modern engineering rather than importing a
+          foreign model wholesale.
+        </p>
+        <ul class="works">
+          <li>
+            <span class="work-year">1967</span
+            ><span class="work-name">New Culture Studios</span
+            ><span class="work-loc">Ibadan, Nigeria</span>
+          </li>
+          <li>
+            <span class="work-year">1975</span
+            ><span class="work-name">Dominican Institute</span
+            ><span class="work-loc">Ibadan, Nigeria</span>
+          </li>
+          <li>
+            <span class="work-year">-</span
+            ><span class="work-name">Akenzua Cultural</span
+            ><span class="work-loc">Benin City, Nigeria</span>
+          </li>
+        </ul>
+      </section>
+
+      <div class="divider divider-nwoko" aria-hidden="true"></div>
+
+      <section class="study reveal" id="olumuyiwa">
+        <div class="study-head">
+          <p class="eyebrow">Study No. 4 - Nigeria, 1929-2000</p>
+          <h2>Oluwole Olumuyiwa</h2>
+        </div>
+        <div class="fact-card">
+          <strong>First Nigerian Architecture Graduate</strong> to return home
+          and open a practice - Lagos, 1960
+        </div>
+        <p class="bio">
+          Olumuyiwa studied architecture and planning at the University of
+          Machester, then trained across European firms before becoming, in
+          1958, the first Nigeria architecture graduate to come home. As the
+          first president of the Arcitects Registration Council of Nigeria, he
+          helped define the profession locally while quietly designing many of
+          the country's early modern schools and public buildings.
+        </p>
+        <ul class="works">
+          <li>
+            <span class="work-year">1960s</span
+            ><span class="work-name">Management House</span
+            ><span class="work-loc">Idowu Taylor St, Lagos</span>
+          </li>
+          <li>
+            <span class="work-year">1960s</span
+            ><span class="work-name">Public schools, western Nigeria</span
+            ><span class="work-loc">Various</span>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>A personal study, compiled by Sunkanmi 🔞™ ></footer>
+    <script>
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+      reveals.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
